@@ -9,6 +9,6 @@ router.post('/profile', createUserProfile)
 router.post('/jobposting', createJobPosting)
 
 // Route to get job recommendations
-router.get('/recommendations/:userId', recommendJobs)
+router.get('/recommendations/', recommendJobs)
 
 module.exports = router;
