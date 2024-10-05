@@ -12,7 +12,18 @@ const createUserProfile = async (req, res) => {
     }
 }
 
-// Recommendation logic
+//Job Posting
+const createJobPosting = async (req,res) =>{
+    try{
+        const JobPosting = new JobPosting(req.body)
+        await JobPosting.save()
+        res.status(201).send(JobPosting)
+    }catch(error){
+        res.status(400).send(error.message)
+    }
+}
+
+//Recommendating Job
 const recommendJobs = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId)
@@ -36,4 +47,4 @@ const recommendJobs = async (req, res) => {
     }
 }
 
-module.exports = { recommendJobs, createUserProfile }
+module.exports = { recommendJobs, createUserProfile, createJobPosting }
